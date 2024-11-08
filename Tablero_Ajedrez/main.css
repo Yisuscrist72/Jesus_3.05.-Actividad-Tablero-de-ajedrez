@@ -1,0 +1,71 @@
+body {
+    /*Color de fondo del body*/
+    background: steelblue;
+    /*Esto es el color que se le aplicara a todo lo que se ponga en body */
+    color: #eee;
+    /*Fuente de letra*/
+    font-family: sans-serif;
+    /*Colocar todo el texto en el centro del body*/
+    text-align: center;
+  }
+
+  #tablero {
+    
+    /*Con el margin top ajustamos el espacio de separación con el titulo ya que solo tocamos el margen externo del contenedor*/
+    margin-top: 50px;
+    /*Con el background podemos colocar imagenes o url de fondo como en este caso que se trata de una imagen de una mesa*/
+    background: url(http://img.freepik.com/free-photo/wooden-texture_1160-686.jpg?size=338&amp;ext=jpg);
+    /*Es una propiedad que adjunta una o más sombras a un elemento en este caso indicando que la sombra tiene 10px de desplazamiento vertical,
+    10px de difuminado de sombra y -6px de radio de expansión y el rgba el .6 indica la opacidad del color*/
+    box-shadow: 0 10px 10px -6px rgba(0, 0, 0, .6);
+    /*Ponemos el tamaño que tendra el borde redondeado*/
+    border-radius: 3px;
+    /*Sirve para colapsar las lineas y no tener dos en una celda*/
+    border-collapse: collapse;
+    /*Tamaño de altura del contenido, en este caso el contenido del tablero*/
+    height: 400px;
+    /*Tamaño de ancho del contenido*/
+    width: 400px;
+    /*Posicionar en relación al ancestro posicionado más cercano, en este caso es en el h2. Los valores establecen la distancia desde el borde en este caso,
+    le estamos indicando que tenga una distancia de 30px con el borde superior*/
+    position: absolute;
+    top: 30px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /*Centrar un elemento con un ancho definido, para que tenga margenes automaticamente, del cual produce que el elemento se centre*/
+    margin: auto;
+  }
+
+
+  /*Aplicar estilo al nieto del padre*/
+  #tablero div div {
+    /*Aplicamos el color que va tener los div nietos*/
+    color: #222;
+    /*Estamos indicando que una imagen flote a la izquierda, esto lo hacemos para que las fichas se pongan en horizontal cada una*/
+    float: left;
+    /*Tamaño de la fuente*/
+    font-size: 36px;
+    /*Es la sombra que se le aplica al texto, en este caso a las fichas..*/
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, .6);
+    /*Ancho del div nieto*/
+    width: 50px;
+    /*Altura del div nieto*/
+    height: 50px;
+  }
+
+/*Esto selecciona un div que es hijo par -> (nth-child(even)), dentro de un div que es hijo impar -> (nth-child(odd)).*/
+#tablero div:nth-child(odd) div:nth-child(even),
+#tablero div:nth-child(even) div:nth-child(odd) {
+  /*Indicamos que fondo va a tener los contenedores que sean par y impar. Se vera ahora las casillas de color negra del tablero*/
+  background: rgba(0, 0, 0, .4);
+}
+
+
+/*Selecciona los div a partir de la séptima posición en adelante del contenedor tablero*/
+#tablero div:nth-child(n+7) div {
+  /*Indicamos el color del texto dentro del div*/
+  color: #fff;
+  /*Sombra que le aplicamos al texto indicando que desplaze 1px a izquierda y derecha, y un desenfoque de 1px*/
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .6);
+}
